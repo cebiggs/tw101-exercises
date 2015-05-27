@@ -15,8 +15,12 @@ public class Main {
 
         Library library = new Library(books, System.out);
         library.printBooksContaining("Potter");
+        System.out.println();
         library.printBooksContaining("Sorcerer");
+        System.out.println();
         library.printBooksContaining("Intro");
+        System.out.println();
         library.printBooksContaining("Stone");
+        System.out.println();
     }
 }
