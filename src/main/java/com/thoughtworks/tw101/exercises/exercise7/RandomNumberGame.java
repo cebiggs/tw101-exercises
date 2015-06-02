@@ -8,40 +8,29 @@ import java.util.Scanner;
 public class RandomNumberGame {
 
     private int randomNumber;
+    Player player;
     private boolean didWin = false;
 
-    public void runGame() {
-        int userGuess = -1;
-        boolean tooHigh = false;
 
+    public RandomNumberGame() {
         setUpGame();
-
-        while ( !didWin ) {
-            userGuess = getUserGuess();
-            tooHigh = checkGuess(userGuess);
-
-            if (didWin) {
-                break;
-            }
-
-            if ( tooHigh ) {
-                System.out.println("Your guess was too high!  Guess again.");
-            }
-            else
-                System.out.println("Your guess was too low!  Guess again.");
-        }
-
-        System.out.printf("You won!! The number was: %d\n", randomNumber);
-
     }
 
-    /**
-     * Set up game
-     */
+    public void playGame() {
+
+        while ( !didWin ) {
+            int userGuess = getUserGuess();
+            checkGuess(userGuess);
+        }
+        endGame();
+    }
+
     private void setUpGame() {
+        player = new Player();
         randomNumber = generateRandomNumber();
-        System.out.println("Welcome to the Random Number Game!! The most fun you've had in a while.");
-        System.out.print("Enter a guess: ");
+
+        System.out.println("Welcome to the Random Number Game!");
+        System.out.println("A random number has been chosen between 1 and 100.  Try to guess the number!\n");
     }
 
     private int generateRandomNumber() {
@@ -49,17 +38,23 @@ public class RandomNumberGame {
     }
 
     private int getUserGuess() {
-        Scanner in = new Scanner(System.in);
-        return in.nextInt();
+        Guess guess = new Guess();
+        return guess.getGuess();
     }
 
-    private boolean checkGuess(int guess) {
+    private void checkGuess(int guess) {
         if ( guess == randomNumber ) {
             didWin = true;
         }
         else if ( guess > randomNumber ) {
-            return true;
+            System.out.println("Your guess was too high!\n");
         }
-        return false;
+        else {
+            System.out.println("Your guess was too low!\n");
+        }
+    }
+
+    private void endGame() {
+        System.out.printf("You won!! The number was %d", randomNumber);
     }
 }
