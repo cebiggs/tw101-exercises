@@ -5,7 +5,8 @@ package com.thoughtworks.tw101.exercises.exercise7;
  */
 public class Player {
 
-    public Guess guess() {
-        return new Guess();
+    public int guess() {
+        Guess guess = new Guess();
+        return guess.getGuess();
     }
 }

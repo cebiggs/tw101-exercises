@@ -38,8 +38,7 @@ public class RandomNumberGame {
     }
 
     private int getUserGuess() {
-        Guess guess = new Guess();
-        return guess.getGuess();
+        return player.guess();
     }
 
     private void checkGuess(int guess) {
