@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class RandomNumberGame {
 
     private int randomNumber;
-    Player player;
+    private Player player;
     private boolean didWin = false;
 
 
