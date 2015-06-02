@@ -8,8 +8,10 @@ import java.util.Scanner;
 public class Guess {
 
     private int guess;
+    private Scanner scanner;
 
     public Guess() {
+        scanner = new Scanner(System.in);
         setGuess();
     }
 
@@ -18,8 +20,10 @@ public class Guess {
     }
 
     private void setGuess() {
+        String input;
         System.out.print("Enter your guess: ");
-        Scanner in = new Scanner(System.in);
-        guess = in.nextInt();
+
+        input = scanner.next();
+        guess = Integer.parseInt(input);
     }
 }
