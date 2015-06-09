@@ -6,7 +6,7 @@ package com.thoughtworks.tw101.exercises.exercise2;
 public class Main {
     public static void main(String[] args) {
 
-        Accumulator accumulator = new Accumulator();
+        Accumulator accumulator = new Accumulator(System.out);
 
         for (int i = 0; i < 5; i++) {
             accumulator.increment();
