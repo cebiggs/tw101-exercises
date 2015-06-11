@@ -19,7 +19,7 @@ public class OrcTests {
     }
 
     @Test
-    public void shouldTakeDamage() {
+    public void shouldTakeFullDamage() {
 
     }
 
