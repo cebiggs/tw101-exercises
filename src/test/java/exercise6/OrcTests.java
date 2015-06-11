@@ -15,7 +15,7 @@ public class OrcTests {
 
     @Before
     public void setUp() {
-        orc = new Orc();
+        orc = new Orc(20);
     }
 
     @Test

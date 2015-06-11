@@ -7,8 +7,8 @@ public class Orc implements Monster {
 
     private int hitpoints;
 
-    public Orc() {
-        hitpoints = 20;
+    public Orc(int initialHitpoints) {
+        hitpoints = initialHitpoints;
     }
 
     @Override

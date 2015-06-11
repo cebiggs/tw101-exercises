@@ -12,8 +12,8 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
-        Orc orc = new Orc();
-        Troll troll = new Troll();
+        Orc orc = new Orc(20);
+        Troll troll = new Troll(40);
         ArrayList<Monster> monsterList = new ArrayList<Monster>();
 
         monsterList.add(orc);

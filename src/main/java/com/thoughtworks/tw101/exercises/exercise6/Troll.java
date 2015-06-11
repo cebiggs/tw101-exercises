@@ -7,8 +7,8 @@ public class Troll implements Monster {
 
     private int hitpoints;
 
-    public Troll() {
-        hitpoints = 40;
+    public Troll(int initialHitpoints) {
+        hitpoints = initialHitpoints;
     }
 
     @Override
