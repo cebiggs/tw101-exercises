@@ -20,7 +20,8 @@ public class OrcTests {
 
     @Test
     public void shouldTakeFullDamage() {
-
+        orc.takeDamage(10);
+        assertThat(orc.currentHitpoints(), is(10));
     }
 
     @Test
