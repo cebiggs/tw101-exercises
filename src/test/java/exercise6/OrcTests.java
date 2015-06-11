@@ -26,7 +26,7 @@ public class OrcTests {
 
     @Test
     public void shouldSetName() {
-
+        assertThat(orc.name(), is("Orc"));
     }
 
     @Test
