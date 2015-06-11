@@ -21,7 +21,8 @@ public class TrollTests {
 
     @Test
     public void shouldOnlyTakeHalfDamage() {
-
+        troll.takeDamage(10);
+        assertThat(troll.currentHitpoints(), is(35));
     }
 
     @Test
