@@ -15,7 +15,7 @@ public class Library {
 
         for ( String book : books ) {
             if ( book.contains(partialBookTitle)) {
-                printStream.print(book + "\n");
+                printStream.println(book);
             }
         }
     }
