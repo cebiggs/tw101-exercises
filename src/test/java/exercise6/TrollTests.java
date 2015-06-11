@@ -27,7 +27,7 @@ public class TrollTests {
 
     @Test
     public void shouldSetName() {
-
+        assertThat(troll.name(), is("Troll"));
     }
 
     @Test
