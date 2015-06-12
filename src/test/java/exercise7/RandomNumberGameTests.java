@@ -4,6 +4,7 @@ import com.thoughtworks.tw101.exercises.exercise7.Player;
 import com.thoughtworks.tw101.exercises.exercise7.RandomNumberGame;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import java.io.PrintStream;
 
@@ -57,11 +58,21 @@ public class RandomNumberGameTests {
 
     @Test
     public void shouldPrintTooLowIfPlayerGuessesLowerThanCorrectNumber() {
+        int randomNumber = randomNumberGame.getRandomNumber();
+        randomNumberGame.checkGuess(randomNumber-1);
+        verify(printStream).println("Your guess was too low!\n");
+    }
+
+    @Test
+    public void shouldKeepAskingForUserGuessWhileUserHasNotWon() {
 
     }
 
     @Test
     public void shouldEndGameWhenPlayerWins() {
-
+        int randomNumber = randomNumberGame.getRandomNumber();
+        when(player.guess()).thenReturn(randomNumber);
+        randomNumberGame.playGame();
+        assertThat(randomNumberGame.getGameOver(), is(true));
     }
 }
