@@ -9,7 +9,8 @@ import java.util.Scanner;
 public class RandomNumberGame {
 
     private int randomNumber;
-    private boolean didWin = false;
+    private boolean didWin;
+    private boolean gameOver;
     private Player player;
     private PrintStream printStream;
 
@@ -17,6 +18,8 @@ public class RandomNumberGame {
     public RandomNumberGame(Player player, PrintStream printStream) {
         this.player = player;
         this.printStream = printStream;
+        didWin = false;
+        gameOver = false;
 
         setUpGame();
     }
@@ -29,9 +32,22 @@ public class RandomNumberGame {
         return didWin;
     }
 
+    private void setDidWin(boolean didWin) {
+        this.didWin = didWin;
+    }
+
+    public boolean getGameOver() {
+        return gameOver;
+    }
+
+    private void setGameOver(boolean gameOver) {
+        this.gameOver = gameOver;
+    }
+
+
     public void checkGuess(int guess) {
         if ( guess == randomNumber ) {
-            didWin = true;
+            setDidWin(true);
         }
         else if ( guess > randomNumber ) {
             printStream.println("Your guess was too high!\n");
@@ -43,7 +59,7 @@ public class RandomNumberGame {
 
     public void playGame() {
 
-        while ( !didWin ) {
+        while ( !getDidWin() ) {
             int userGuess = getUserGuess();
             checkGuess(userGuess);
         }
@@ -66,6 +82,7 @@ public class RandomNumberGame {
     }
 
     private void endGame() {
+        setGameOver(true);
         printStream.printf("You won!! The number was %d", randomNumber);
     }
 }
