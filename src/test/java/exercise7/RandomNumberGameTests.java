@@ -4,15 +4,13 @@ import com.thoughtworks.tw101.exercises.exercise7.Player;
 import com.thoughtworks.tw101.exercises.exercise7.RandomNumberGame;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 import java.io.PrintStream;
 
-import static org.mockito.Mockito.mock;
-import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 /**
  * Created by cannon on 6/10/15.

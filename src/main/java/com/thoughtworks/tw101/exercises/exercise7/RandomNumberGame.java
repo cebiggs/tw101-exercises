@@ -1,7 +1,6 @@
 package com.thoughtworks.tw101.exercises.exercise7;
 
 import java.io.PrintStream;
-import java.util.Scanner;
 
 /**
  * Created by cannon on 5/30/15.
@@ -60,7 +59,7 @@ public class RandomNumberGame {
 
     public void playGame() {
 
-        while ( getGameOver() ) {
+        while ( !getGameOver() ) {
             int userGuess = getUserGuess();
             checkGuess(userGuess);
         }
