@@ -3,10 +3,8 @@ package exercise9;
 import com.thoughtworks.tw101.exercises.exercise9.Node;
 import org.junit.Test;
 
-import java.util.List;
-
-import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 /**
  * Created by cannon on 6/11/15.
