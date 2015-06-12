@@ -29,6 +29,18 @@ public class RandomNumberGame {
         return didWin;
     }
 
+    public void checkGuess(int guess) {
+        if ( guess == randomNumber ) {
+            didWin = true;
+        }
+        else if ( guess > randomNumber ) {
+            printStream.println("Your guess was too high!\n");
+        }
+        else {
+            printStream.println("Your guess was too low!\n");
+        }
+    }
+
     public void playGame() {
 
         while ( !didWin ) {
@@ -51,18 +63,6 @@ public class RandomNumberGame {
 
     private int getUserGuess() {
         return player.guess();
-    }
-
-    private void checkGuess(int guess) {
-        if ( guess == randomNumber ) {
-            didWin = true;
-        }
-        else if ( guess > randomNumber ) {
-            printStream.println("Your guess was too high!\n");
-        }
-        else {
-            printStream.println("Your guess was too low!\n");
-        }
     }
 
     private void endGame() {

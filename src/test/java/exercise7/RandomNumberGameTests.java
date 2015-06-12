@@ -37,14 +37,22 @@ public class RandomNumberGameTests {
     @Test
     public void shouldBeAWinIfPlayerGuessesCorrectNumber() {
         int randomNumber = randomNumberGame.getRandomNumber();
-        when(player.guess()).thenReturn(randomNumber);
-        randomNumberGame.playGame();
+        randomNumberGame.checkGuess(randomNumber);
         assertThat(randomNumberGame.getDidWin(), is(true));
     }
 
     @Test
-    public void shouldPrintTooHighIfPlayerGuessesHigherThanCorrectNumber() {
+    public void shouldNotBeAWinIfPlayerGuessesWrongNumber() {
+        int randomNumber = randomNumberGame.getRandomNumber();
+        randomNumberGame.checkGuess(randomNumber+1);
+        assertThat(randomNumberGame.getDidWin(), is(false));
+    }
 
+    @Test
+    public void shouldPrintTooHighIfPlayerGuessesHigherThanCorrectNumber() {
+        int randomNumber = randomNumberGame.getRandomNumber();
+        randomNumberGame.checkGuess(randomNumber+1);
+        verify(printStream).println("Your guess was too high!\n");
     }
 
     @Test
