@@ -1,6 +1,8 @@
 package com.thoughtworks.tw101.exercises.exercise8;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintStream;
 
 /**
  * Created by cannon on 5/30/15.
@@ -8,14 +10,16 @@ import java.util.Scanner;
 public class Guess {
 
     private int guess;
-    private Scanner scanner;
+    private BufferedReader bufferedReader;
+    private PrintStream printStream;
 
     /**
      * @throws NumberFormatException from setGuess(),
      *                               which attempts to parse user input from a String to an Integer
      */
-    public Guess() throws NumberFormatException {
-        scanner = new Scanner(System.in);
+    public Guess(BufferedReader bufferedReader, PrintStream printStream) throws NumberFormatException {
+        this.printStream = printStream;
+        this.bufferedReader = bufferedReader;
         setGuess();
     }
 
@@ -33,9 +37,13 @@ public class Guess {
      */
     private void setGuess() throws NumberFormatException {
         String input;
-        System.out.print("Enter your guess: ");
+        printStream.print("Enter your guess: ");
 
-        input = scanner.next();
-        guess = Integer.parseInt(input);
+        try {
+            input = bufferedReader.readLine();
+            guess = Integer.parseInt(input);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

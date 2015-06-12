@@ -1,5 +1,8 @@
 package com.thoughtworks.tw101.exercises.exercise8;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 /**
@@ -21,15 +24,22 @@ public class Player {
      *                               user input from a String to an Integer in the Guess class
      */
     public int guess() throws NumberFormatException {
-        Guess guess = new Guess();
+        Guess guess = getNewGuess();
         guesses.add(guess);
         return guess.getGuess();
     }
 
-    public void printGuesses() {
-        System.out.print("You guessed: ");
+    public Guess getNewGuess() {
+        return new Guess(new BufferedReader(new InputStreamReader(System.in)), System.out);
+    }
+
+    public void printGuesses(PrintStream printStream) {
+        String output = "You guessed: ";
+
         for (Guess guess : guesses) {
-            System.out.print(guess.getGuess() + " ");
+            output = output.concat(guess.getGuess() + " ");
         }
+
+        printStream.println(output);
     }
 }
