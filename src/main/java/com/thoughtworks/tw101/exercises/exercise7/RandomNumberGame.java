@@ -48,6 +48,7 @@ public class RandomNumberGame {
     public void checkGuess(int guess) {
         if ( guess == randomNumber ) {
             setDidWin(true);
+            endGame();
         }
         else if ( guess > randomNumber ) {
             printStream.println("Your guess was too high!\n");
@@ -59,11 +60,10 @@ public class RandomNumberGame {
 
     public void playGame() {
 
-        while ( !getDidWin() ) {
+        while ( getGameOver() ) {
             int userGuess = getUserGuess();
             checkGuess(userGuess);
         }
-        endGame();
     }
 
     private void setUpGame() {

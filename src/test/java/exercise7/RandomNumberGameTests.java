@@ -64,15 +64,16 @@ public class RandomNumberGameTests {
     }
 
     @Test
-    public void shouldKeepAskingForUserGuessWhileUserHasNotWon() {
-
+    public void shouldNotEndGameIfUserHasNotWon() {
+        int randomNumber = randomNumberGame.getRandomNumber();
+        randomNumberGame.checkGuess(randomNumber - 1);
+        assertThat(randomNumberGame.getGameOver(), is(false));
     }
 
     @Test
     public void shouldEndGameWhenPlayerWins() {
         int randomNumber = randomNumberGame.getRandomNumber();
-        when(player.guess()).thenReturn(randomNumber);
-        randomNumberGame.playGame();
+        randomNumberGame.checkGuess(randomNumber);
         assertThat(randomNumberGame.getGameOver(), is(true));
     }
 }
