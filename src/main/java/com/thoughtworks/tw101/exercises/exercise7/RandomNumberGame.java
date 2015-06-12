@@ -1,5 +1,6 @@
 package com.thoughtworks.tw101.exercises.exercise7;
 
+import java.io.PrintStream;
 import java.util.Scanner;
 
 /**
@@ -8,12 +9,24 @@ import java.util.Scanner;
 public class RandomNumberGame {
 
     private int randomNumber;
-    private Player player;
     private boolean didWin = false;
+    private Player player;
+    private PrintStream printStream;
 
 
-    public RandomNumberGame() {
+    public RandomNumberGame(Player player, PrintStream printStream) {
+        this.player = player;
+        this.printStream = printStream;
+
         setUpGame();
+    }
+
+    public int getRandomNumber() {
+        return randomNumber;
+    }
+
+    public boolean getDidWin() {
+        return didWin;
     }
 
     public void playGame() {
@@ -26,11 +39,10 @@ public class RandomNumberGame {
     }
 
     private void setUpGame() {
-        player = new Player();
         randomNumber = generateRandomNumber();
 
-        System.out.println("Welcome to the Random Number Game!");
-        System.out.println("A random number has been chosen between 1 and 100.  Try to guess the number!\n");
+        printStream.println("Welcome to the Random Number Game!");
+        printStream.println("A random number has been chosen between 1 and 100.  Try to guess the number!\n");
     }
 
     private int generateRandomNumber() {
@@ -46,14 +58,14 @@ public class RandomNumberGame {
             didWin = true;
         }
         else if ( guess > randomNumber ) {
-            System.out.println("Your guess was too high!\n");
+            printStream.println("Your guess was too high!\n");
         }
         else {
-            System.out.println("Your guess was too low!\n");
+            printStream.println("Your guess was too low!\n");
         }
     }
 
     private void endGame() {
-        System.out.printf("You won!! The number was %d", randomNumber);
+        printStream.printf("You won!! The number was %d", randomNumber);
     }
 }
