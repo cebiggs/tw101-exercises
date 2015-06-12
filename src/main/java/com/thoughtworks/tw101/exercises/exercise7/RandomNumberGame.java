@@ -73,7 +73,7 @@ public class RandomNumberGame {
     }
 
     private int generateRandomNumber() {
-        return (int) (Math.random() * 100);
+        return (int) (Math.random() * 100) + 1;
     }
 
     private int getUserGuess() {
